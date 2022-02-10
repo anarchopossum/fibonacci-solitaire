@@ -13,9 +13,12 @@
 using namespace std;
 
 int main() {
-    cout << "Hello, World!" << std::endl;
-    Card c1("A","D");
-    c1.display();
+    Card stack[52];
+    //Card c1('A','D');
+    //c1.display();
     cout << endl;
+    Deck d1;
+    d1.create(stack);
+    d1.display();
     return 0;
 }

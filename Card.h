@@ -12,11 +12,11 @@ using namespace std;
 class Card
 {
 private: // Attributes go here
-    string Suite;
-    string Rank;
+    char Suite;
+    char Rank;
 public:
     Card();
-    Card(string r, string s);
+    Card(char r, char s);
     void display();
 };
 

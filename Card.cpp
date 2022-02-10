@@ -8,12 +8,16 @@ using namespace std;
 
 Card::Card()= default;
 
-Card::Card(string r, string s)
+Card::Card(char r, char s)
 {
     Rank = r;
     Suite = s;
 }
 void Card::display()
 {
-    cout << "Rank: " << Rank << " | Suite: " << Suite;
+    if (Rank == 't') {
+        cout << "10" << Suite << endl;
+    }else {
+        cout << Rank << Suite << endl;
+    }
 }
