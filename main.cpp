@@ -12,11 +12,15 @@
 
 using namespace std;
 
+
 int main() {
     int top;
     //Card c1('A','D');
     //c1.display() << endl;
     Deck d1;
     d1.display();
+    d1.shuffle();
+    d1.display();
+    cout << d1.isEmpty();
     return 0;
 }
