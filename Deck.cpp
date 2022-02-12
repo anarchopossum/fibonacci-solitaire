@@ -79,20 +79,36 @@ Deck::Deck()
 }
 void Deck::display()
 {
-    //cout << "Size of Deck:\t" << sizeof(Deck) << endl;
-    for (int i = 0; i < sizeof(Deck); ++i) { //todo: Figure out why Deck is equal to 1
-        cout << i << "\t";
+    cout << "Spade:\t";
+    for (int i = 0; i < 13; ++i) {
         Stack[i].display();
-        cout << endl;
     }
+    cout << endl << "Heart:\t";
+    for (int i = 13; i < 26; ++i) {
+        Stack[i].display();
+    }
+    cout << endl << "Diamond:";
+    for (int i = 26; i < 39; ++i) {
+        Stack[i].display();
+    }
+    cout << endl << "Clover:\t";
+    for (int i =39; i < 52; ++i) {
+        Stack[i].display();
+    }
+    cout << "\n~~~ Size of Deck:\t" << sizeof(Deck) <<" ~~~"<< endl;
 }
 Card Deck::deal()
 { // todo: Figureout how to implement top.
     //return Stack[top++];
 }
-void shuffle()
+void Deck::shuffle()
 {
+    int alpine = rand()%sizeof(Deck);
+    int cavern = rand()%sizeof(Deck);
+    Card copy   = Stack[alpine];
 
+    Stack[alpine] = Stack[cavern];
+    Stack[cavern] = copy;
 }
 bool Deck::isEmpty()
 {
@@ -104,4 +120,6 @@ bool Deck::isEmpty()
     }
 }
 void refreshDeck()
-{}
+{
+
+}
