@@ -79,7 +79,7 @@ Deck::Deck()
 }
 void Deck::display()
 {
-    cout << "\n~~~~~~~~~~~ Size of Deck:" << sizeof(Deck) <<" ~~~~~~~~~~~"<< endl;
+    cout << "\n~~~~~~~~~~~~~~~~ Size of Deck: " << sizeof(Deck) <<" ~~~~~~~~~~~~~~~~"<< endl;
     for (int i = 0; i < 13; ++i) {
         Stack[i].display();
     }
@@ -95,7 +95,7 @@ void Deck::display()
     for (int i =39; i < 52; ++i) {
         Stack[i].display();
     }
-    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 }
 Card Deck::deal()
 { // todo: Figureout how to implement top.
@@ -113,7 +113,7 @@ void Deck::shuffle()
     }
 }
 bool Deck::isEmpty()
-{
+{ //todo: better implement the isempty()
     int size =sizeof(Deck);
     if (size == 0){
         return true;

@@ -19,7 +19,7 @@ public:
     Card(char r, char s);
     void display();
     void setCard(char r, char s);
-    int getValue();
+    int getValue(char r, char s);
 };
 
 #endif //FIBSOLI_CARD_H
