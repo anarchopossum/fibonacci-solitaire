@@ -7,18 +7,11 @@
 
 using namespace std;
 
-Deck::Deck()= default;
-
-//Deck::Deck(){}
-void Deck::display()
+Deck::Deck()
 {
-    cout << "Size of Deck:\t" << sizeof(Deck) << endl;
-}
-Card * Deck::create(Card a[]) {
     char symbol;
     char value;
     int loopCount =0;
-    Card alpine[52];
     for (int i = 0; i < 4; ++i) { // Controls the Suit of the card
         for (int j = 1; j < 14; ++j) { // Controls the value of the card
             // gives the Suit to the Card
@@ -76,21 +69,39 @@ Card * Deck::create(Card a[]) {
                 case 13:
                     value = 'K'; //King
                     break;
-                default:
-                    cout << "Out of Bounds Error";
-                    return 0;
             }
             Card c(value, symbol);
-            c.display();
-            alpine[loopCount] = c;
+            //c.display();
+            Stack[loopCount] = c;
             loopCount++;
         }
-        cout << "-----\n";
     }
-    //return(alpine);
 }
-/*Card Deck::deal()
+void Deck::display()
 {
-    return Storage[top++];
+    //cout << "Size of Deck:\t" << sizeof(Deck) << endl;
+    for (int i = 0; i < sizeof(Deck); ++i) { //todo: Figure out why Deck is equal to 1
+        cout << i << "\t";
+        Stack[i].display();
+        cout << endl;
+    }
 }
-*/
+Card Deck::deal()
+{ // todo: Figureout how to implement top.
+    //return Stack[top++];
+}
+void shuffle()
+{
+
+}
+bool Deck::isEmpty()
+{
+    int size =sizeof(Deck);
+    if (size == 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+void refreshDeck()
+{}

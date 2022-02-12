@@ -18,6 +18,8 @@ public:
     Card();
     Card(char r, char s);
     void display();
+    void setCard(char r, char s);
+    int getValue();
 };
 
 #endif //FIBSOLI_CARD_H

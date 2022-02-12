@@ -13,12 +13,10 @@
 using namespace std;
 
 int main() {
-    Card stack[52];
+    int top;
     //Card c1('A','D');
-    //c1.display();
-    cout << endl;
+    //c1.display() << endl;
     Deck d1;
-    d1.create(stack);
     d1.display();
     return 0;
 }

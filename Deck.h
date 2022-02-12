@@ -17,13 +17,14 @@ using namespace std;
 class Deck
 {
 private:
-
+    Card Stack[26];
 public:
     Deck();
-    Deck(Card c[]);
     void display();
-    Card * create(Card c[]);
     Card deal();
+    void shuffle();
+    bool isEmpty();
+    void refreshDeck();
 };
 
 #endif //FIBSOLI_DECK_H
