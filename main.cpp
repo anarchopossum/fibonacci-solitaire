@@ -47,11 +47,10 @@ int main() {
                             gamesWon++;
                             sum = 0;
                             break;
-                        }
-                        if(d1.isempty() && gamesWon < 11){
+                        }else if(d1.isempty() && gamesWon < 11){
                             cout << "\nHow unfortunate, You lost :(\nYou got "<<gamesWon<<"/11 matches won."<<endl;
                             break;
-                        } else if (d1.isempty() && gamesWon >= 11){
+                        }else if (d1.isempty() && gamesWon >= 11){
                             cout << "You won the game! you got "<< gamesWon <<"/11 pairs!!"<< endl;
                         }
                     }
