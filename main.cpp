@@ -52,6 +52,7 @@ int main() {
                             break;
                         }else if (d1.isempty() && gamesWon >= 11){
                             cout << "You won the game! you got "<< gamesWon <<"/11 pairs!!"<< endl;
+                            break;
                         }
                     }
                 }
