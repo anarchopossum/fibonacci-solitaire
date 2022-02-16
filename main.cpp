@@ -32,10 +32,11 @@ int main() {
             case 4:
                 Card hand;
                 int sum = 0;
+                int gamesWon=0;
                 int FibNum[] = {1,2,3,5,8,13,21,34,55,89,144,233,377};
 
                 d1.shuffle();
-                //cout << "Shuffling Deck..."<< endl;
+
                 while (!d1.isempty()){
                     hand = d1.deal(); // draws the card
                     hand.display();
@@ -43,15 +44,15 @@ int main() {
                     for (int i = 0; i < 12; ++i) {
                         if (sum == FibNum[i]){
                             cout << "\nWin!" << endl << "Sum: "<< sum << " matches with fibonacci Number: " << FibNum[i] <<endl;
+                            gamesWon++;
                             sum = 0;
-                            if (d1.isempty()){
-                                cout << "You won the game! Last value is part of a Fibonacci Sequence!"<< endl;
-                            }
                             break;
                         }
-                        if(sum != FibNum[i] && d1.isempty()){
-                            cout << "\nHow unfortunate, You lost this round, Try Again."<<endl;
+                        if(d1.isempty() && gamesWon < 11){
+                            cout << "\nHow unfortunate, You lost :(\nYou got "<<gamesWon<<"/11 matches won."<<endl;
                             break;
+                        } else if (d1.isempty() && gamesWon >= 11){
+                            cout << "You won the game! you got "<< gamesWon <<"/11 pairs!!"<< endl;
                         }
                     }
                 }
@@ -60,25 +61,5 @@ int main() {
                 break;
         }
     }while (ans !=5);
-/*
- * Debug
-    Card c1('a','S');
-    c1.display();
-    cout << c1.getValue()<<endl;
-    c1.setCard('2','S');
-    c1.display();
-    cout << c1.getValue()<<endl;
-    Deck d1;
-    d1.display();
-    d1.shuffle();
-    d1.display();
-    for (int i = 0; i < 52; ++i) {
-        d1.deal();
-        d1.isempty();
-    }
-    d1.display();
-    d1.refreshDeck();
-    d1.display();
-*/
     return 0;
 }
