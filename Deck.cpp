@@ -1,86 +1,60 @@
-//
-// Created by Jasmine San Juan on 2/3/22.
-//
-#include "Card.h"
+
 #include "Deck.h"
+#include <string>
 #include <iostream>
 
 using namespace std;
 
-Deck::Deck()
-{
-    char symbol;
-    char value;
-    int loopCount =0;
-    for (int i = 0; i < 4; ++i) { // Controls the Suit of the card
-        for (int j = 1; j < 14; ++j) { // Controls the value of the card
-            // gives the Suit to the Card
-            switch (i) {
+Deck::Deck() {
+    char  T_rank;
+    char  T_suit;
+    cout << "Initiating Deck...";
+    for (int i= 0; i< 4; i++) {
+        for (int j = 1; j <= 13; j++) {
+            switch (i) { // gives suit value to Card.
                 case 0:
-                    symbol = 'S'; //Spades
+                    T_suit = 'S'; // Spade
                     break;
                 case 1:
-                    symbol = 'H'; //Heart
+                    T_suit = 'H'; // Heart
                     break;
                 case 2:
-                    symbol = 'D'; //Diamond
+                    T_suit = 'D'; // Diamond
                     break;
                 case 3:
-                    symbol = 'C'; //Clubs
+                    T_suit = 'C'; // CLover
+                    break;
             }
-            // gives the number value to the card
-            switch (j) {
+            switch (j) { // gives Number Value to card
                 case 1:
-                    value = 'A'; //Ace
-                    break;
-                case 2:
-                    value = '2';
-                    break;
-                case 3:
-                    value = '3';
-                    break;
-                case 4:
-                    value = '4';
-                    break;
-                case 5:
-                    value = '5';
-                    break;
-                case 6:
-                    value = '6';
-                    break;
-                case 7:
-                    value = '7';
-                    break;
-                case 8:
-                    value = '8';
-                    break;
-                case 9:
-                    value = '9';
-                    break;
-                case 10:
-                    value = 't';
+                    T_rank = 'A'; // ACE
                     break;
                 case 11:
-                    value = 'J'; //Jack
+                    T_rank = 'J'; // JACK
                     break;
                 case 12:
-                    value = 'Q'; //Queen
+                    T_rank = 'Q'; // QUEEN
                     break;
                 case 13:
-                    value = 'K'; //King
+                    T_rank = 'K'; // KING
                     break;
+                case 10:
+                    T_rank = 't'; // 10
+                    break;
+                default:
+                    T_rank = j + '0'; // NUMBER VALUES INTO CHAR
             }
-            Card c(value, symbol);
-            //c.display();
-            Stack[loopCount] = c;
-            loopCount++;
+            this->Stack[size].setCard(T_rank,  T_suit);
+            //Stack[size].display();
+            //cout << "Size: " << size << "\t Deck Size: "<< sizeof(Deck) << endl;
+            this->size++;
         }
     }
+    cout << " OK\n";
 }
-void Deck::display()
-{
-    cout << "\n~~~~~~~~~~~~~~~~ Size of Deck: " << sizeof(Deck) <<" ~~~~~~~~~~~~~~~~"<< endl;
-    for (int i = 0; i < 13; ++i) {
+void Deck::display(){
+    cout << "\n~~~~~~~~~~~~~~~~~~~~~~ Deck ~~~~~~~~~~~~~~~~~~~~~~"<< endl;
+    for (int i = 0; i < 13; ++i) { // displays first 13 cards
         Stack[i].display();
     }
     cout << endl;
@@ -92,36 +66,39 @@ void Deck::display()
         Stack[i].display();
     }
     cout << endl;
-    for (int i =39; i < 52; ++i) {
+    for (int i = 39; i < 52; ++i) {
         Stack[i].display();
     }
-    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-}
-Card Deck::deal()
-{ // todo: Figureout how to implement top.
-    //return Stack[top++];
+    cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 }
 void Deck::shuffle()
 {
+    cout << "\nDeck Shuffling...";
+    srand(time(0));
     for (int i = 0; i < rand(); ++i) {
-        int alpine = rand() % sizeof(Deck);
-        int cavern = rand() % sizeof(Deck);
+        int alpine = rand() % 52;
+        int cavern = rand() % 52;
         Card copy = Stack[alpine];
 
         Stack[alpine] = Stack[cavern];
         Stack[cavern] = copy;
     }
+    cout << " OK\n";
 }
-bool Deck::isEmpty()
-{ //todo: better implement the isempty()
-    int size =sizeof(Deck);
-    if (size == 0){
+Card Deck::deal(){
+    Card topCard = Stack[top++];
+    //top_card.display();
+    //cout << "Top: " << top << endl;
+    return topCard;
+}
+bool Deck::isempty() {
+    if (top == 52){
+        //cout << "Isempty";
         return true;
-    }else{
-        return false;
     }
 }
-void Deck::refreshDeck()
-{
-
+void Deck::refreshDeck() {
+    cout << "Deck Refreshing...\n";
+    *this = {};
+    cout << endl;
 }

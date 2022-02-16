@@ -1,30 +1,22 @@
-//
-// Created by Jasmine San Juan on 2/3/22.
-//
 
-
-
-
-
-#ifndef FIBSOLI_DECK_H
-#define FIBSOLI_DECK_H
-
+#ifndef FIBSOL2_DECK_H
+#define FIBSOL2_DECK_H
 #include "Card.h"
 #include <string>
 
 using namespace std;
 
-class Deck
-{
+class Deck{
 private:
-    Card Stack[26];
+    int size = 0;
+    int top =0;
+    Card Stack[52];
 public:
     Deck();
-    void display();
+    void refreshDeck();
     Card deal();
     void shuffle();
-    bool isEmpty();
-    void refreshDeck();
+    bool isempty();
+    void display();
 };
-
-#endif //FIBSOLI_DECK_H
+#endif //FIBSOL2_DECK_H
